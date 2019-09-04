@@ -89,6 +89,11 @@ public class Connectivity {
         boolean isWifiEnabled = wifiManager.isWifiEnabled();
         int rssi = wifiManager.getConnectionInfo().getRssi();
         int wifiLevel = getWifiLevel(rssi);
+
+
+
+
+
         return (networkInfo == null) ? create(dhcpInfo, hasCapability, isWifiEnabled, wifiLevel, wifiState)
                 : create(networkInfo, dhcpInfo, hasCapability, isWifiEnabled, wifiLevel, wifiState);
     }

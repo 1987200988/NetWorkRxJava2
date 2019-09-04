@@ -90,10 +90,9 @@ import com.baidu.network_rxjava2.rx2.network.observing.NetworkObservingStrategy;
 ////        tryToUnregisterWifiSwitchReceiver(context);
 //      }
 //    }).startWith(Connectivity.create(context)).distinctUntilChanged().toObservable();
-    return Observable.interval(5, 2, TimeUnit.MILLISECONDS,
+    return Observable.interval(1, 4, TimeUnit.MILLISECONDS,
             Schedulers.io()).map(new Function<Long, Connectivity>() {
       @Override public Connectivity apply(@io.reactivex.annotations.NonNull Long tick) throws Exception {
-        Log.e("accept", "apply: " );
         return Connectivity.create(context);
       }
     }).distinctUntilChanged();

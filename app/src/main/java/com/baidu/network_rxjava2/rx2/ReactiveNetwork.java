@@ -26,8 +26,10 @@ import com.baidu.network_rxjava2.rx2.network.observing.strategy.PreLollipopNetwo
 
 import android.Manifest;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.RequiresPermission;
 
+import android.util.Log;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
@@ -64,13 +66,16 @@ public class ReactiveNetwork {
   public static Observable<Connectivity> observeNetworkConnectivity(final Context context) {
     final NetworkObservingStrategy strategy;
 
-    if (Preconditions.isAtLeastAndroidMarshmallow()) {
+//    if (Preconditions.isAtLeastAndroidMarshmallow()) {
       strategy = new MarshmallowNetworkObservingStrategy();
-    } else if (Preconditions.isAtLeastAndroidLollipop()) {
-      strategy = new LollipopNetworkObservingStrategy();
-    } else {
-      strategy = new PreLollipopNetworkObservingStrategy();
-    }
+//      Log.e("aaaaaaa", "observeNetworkConnectivity: "+ Build.VERSION.SDK_INT);
+//    } else if (Preconditions.isAtLeastAndroidLollipop()) {
+//      Log.e("bbbbbbb", "observeNetworkConnectivity: "+Build.VERSION.SDK_INT );
+//      strategy = new LollipopNetworkObservingStrategy();
+//    } else {
+//      Log.e("cccccccc", "observeNetworkConnectivity: "+Build.VERSION.SDK_INT );
+//      strategy = new PreLollipopNetworkObservingStrategy();
+//    }
 
     return observeNetworkConnectivity(context, strategy);
   }
